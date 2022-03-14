@@ -3,6 +3,8 @@ import sentry_sdk
 from dotenv import load_dotenv
 from sentry_sdk.integrations.django import DjangoIntegration
 
+load_dotenv()
+
 sentry_sdk.init(
     dsn = os.environ.getenv("SENTRY_SDK"),
     integrations=[DjangoIntegration()],
