@@ -43,7 +43,7 @@ jobs:
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a oc-lettings-thomas web
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a oc-lettings-thomas web
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release --app oc-lettings-thomas web
 
 workflows:
   sample:
