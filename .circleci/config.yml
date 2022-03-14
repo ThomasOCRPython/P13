@@ -1,21 +1,17 @@
-
 version: 2.1
 
-
 orbs:
-  
   python: circleci/python@1.5.0
   #docker:
 
-
 jobs:
-  build-and-test: 
+  build-and-test:
     docker:
       - image: cimg/python:3.10.2
     steps:
       - checkout
       - python/install-packages:
-          pkg-manager: pip   
+          pkg-manager: pip
       - run:
           name: Run tests
           command: pytest
@@ -23,23 +19,23 @@ jobs:
           name: Run flake8
           command: flake8
   build-docker:
-      environment:
-        IMAGE_NAME: oc-lettings
-      docker:
-        - image: circleci/buildpack-deps:stretch
-      steps:
-        - checkout
-        - setup_remote_docker
-        - run:
-            name: Build Docker image
-            command: |
-              echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-              docker build -t "$CIRCLE_SHA1" .
-              docker tag "$CIRCLE_SHA1" "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
-              docker push "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
+    environment:
+      IMAGE_NAME: oc-lettings
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image
+          command: |
+            echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+            docker build -t "$CIRCLE_SHA1" .
+            docker tag "$CIRCLE_SHA1" "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
+            docker push "$DOCKER_USERNAME"/oc_lettings:"$CIRCLE_SHA1"
 
 workflows:
-  sample: 
+  sample:
     jobs:
       - build-and-test
       - build-docker:
