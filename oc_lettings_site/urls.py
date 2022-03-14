@@ -13,5 +13,5 @@ urlpatterns = [
     path("lettings/", include("lettings.urls"), name="lettings"),
     path("profiles/", include("profiles.urls"), name="profiles"),
     path("admin/", admin.site.urls),
-    path('sentry-debug/', trigger_error),
+    path("sentry-debug/", trigger_error),
 ]
