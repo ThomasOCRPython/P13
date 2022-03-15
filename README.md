@@ -77,7 +77,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 ### Déploiement
 
-- A partir de Heroku : `https://dashboard.heroku.com/apps/oc-lettings-thomas` on selectionne "open app", qui ouvre une page à l'adresse suivant : `https://oc-lettings-thomas.herokuapp.com/`
+- A partir de Heroku : `https://dashboard.heroku.com/apps/oc-lettings-thomas` on selectionne "open app", qui ouvre l'application à l'adresse suivant : `https://oc-lettings-thomas.herokuapp.com/`.
 ### Prérequis
 
 - Compte [DockerHub](https://hub.docker.com/)
@@ -89,11 +89,11 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 ### Installation 
 
  1. Créer le repository Github
- 2. Créer un projet Heroku.
+ 2. Créer un projet Heroku
  3. Lier le repository Github avec le compte [CircleCI](https://app.circleci.com/projects)
  4. Créer un projet Sentry et récupérer la clé [SDK](https://sentry.io/openranga/django/getting-started/python-django/)
- 5. Récupérer un token d'authentification Heroku. [Documentation](https://devcenter.heroku.com/articles/authentication).
- 6. Informer les [clés d'environnement](#cles-denvironnement) dans les settings du projet CircleCI et Heroku.
+ 5. Récupérer un token d'authentification Heroku. [Documentation](https://devcenter.heroku.com/articles/authentication)
+ 6. Informer les [clés d'environnement](#cles-denvironnement) dans les settings du projet CircleCI et Heroku
  7. Commit le fichier sur la branche `master`
 
 
@@ -102,7 +102,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 | Clé  | Valeur          | Destination |
 | :--------------: |:---------------:|:---------:|
-| DOCKER_PASSORD  |   Mot de passe Dockerhub  | CircleCI/project/settings |
+| DOCKER_PASSWORD  |   Mot de passe Dockerhub  | CircleCI/project/settings |
 | DOCKER_USENAME  |   Identifiant Dockerhub  | CircleCI/project/settings |
 | HEROKU_TOKEN  | Tocken  Heroku  | CircleCI/project/settings |
 | DEBUG  | FAlSE  | CircleCI/project/settings |
