@@ -52,7 +52,15 @@ workflows:
       - build-docker:
           requires:
             - build-and-test
+          filters:
+            branches:
+              only: 
+                - master
       - heroku-deploy:
           requires:
             - build-and-test
             - build-docker
+          filters:
+            branches:
+              only: 
+                - master
