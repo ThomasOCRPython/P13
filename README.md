@@ -74,3 +74,37 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1`
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+### Déploiement
+
+- A partir de Heroku : `https://dashboard.heroku.com/apps/oc-lettings-thomas` on selectionne "open app", qui ouvre une page à l'adresse suivant : `https://oc-lettings-thomas.herokuapp.com/`
+### Prérequis
+
+- Compte [DockerHub](https://hub.docker.com/)
+- Compte [CircleCI](https://circleci.com/signup/)
+- Compte [Heroku](https://signup.heroku.com/)
+- Installer [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+- Compte [Sentry](https://sentry.io/signup/)
+
+### Installation 
+
+ 1. Créer le repository Github
+ 2. Créer un projet Heroku.
+ 3. Lier le repository Github avec le compte [CircleCI](https://app.circleci.com/projects)
+ 4. Créer un projet Sentry et récupérer la clé [SDK](https://sentry.io/openranga/django/getting-started/python-django/)
+ 5. Récupérer un token d'authentification Heroku. [Documentation](https://devcenter.heroku.com/articles/authentication).
+ 6. Informer les [clés d'environnement](#cles-denvironnement) dans les settings du projet CircleCI et Heroku.
+ 7. Commit le fichier sur la branche `master`
+
+
+
+ ### Clés d'environnement
+
+| Clé  | Valeur          | Destination |
+| :--------------: |:---------------:|:---------:|
+| DOCKER_PASSORD  |   Mot de passe Dockerhub  | CircleCI/project/settings |
+| DOCKER_USENAME  |   Identifiant Dockerhub  | CircleCI/project/settings |
+| HEROKU_TOKEN  | Tocken  Heroku  | CircleCI/project/settings |
+| DEBUG  | FAlSE  | CircleCI/project/settings |
+| SECRET_KEY  | `fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s` | Heroku/project/settings |
+| SENTRY_SDK  | Adresse Sentry  | Heroku/project/settings |
