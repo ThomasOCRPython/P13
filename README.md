@@ -96,7 +96,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
  6. Informer les [clés d'environnement](#cles-denvironnement) dans les settings du projet CircleCI et Heroku
  7. Commit le fichier sur la branche `master`
  8. Fin 
- 9. the end 
+  
 
 
  ### Clés d'environnement
