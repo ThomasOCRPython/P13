@@ -95,8 +95,8 @@ Utilisation de PowerShell, comme ci-dessus sauf :
  5. Récupérer un token d'authentification Heroku. [Documentation](https://devcenter.heroku.com/articles/authentication)
  6. Informer les [clés d'environnement](#cles-denvironnement) dans les settings du projet CircleCI et Heroku
  7. Commit le fichier sur la branche `master`
- 8. Fin The End
- 
+ 8. Fin 
+ 9. the end 
 
 
  ### Clés d'environnement
